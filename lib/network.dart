@@ -7,7 +7,7 @@ Future<List<Book>> fetchBook({String search}) async {
   final response =
       await http.get('https://www.googleapis.com/books/v1/volumes?q=$search');
   if (response.statusCode == 200) {
-    json.decode(response.body)['items'].forEach((item) {
+    json.decode(response.body)['items']?.forEach((item) {
       bookList.add(Book.fromJson(item));
     });
     return bookList;

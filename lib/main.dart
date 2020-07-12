@@ -1,5 +1,6 @@
 import 'package:biblio/network.dart';
 import 'package:flutter/material.dart';
+import 'dart:async';
 import 'book.dart';
 
 void main() {
@@ -27,19 +28,25 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   List<Book> entries = List<Book>();
+  Timer _timer;
 
   void _textChanged(String q) {
-    if (q != '') {
-      fetchBook(search: q).then((value) {
-        setState(() {
-          entries = value;
-        });
-      });
-    } else {
-      setState(() {
-        entries.clear();
-      });
+    if (_timer != null) {
+      _timer.cancel();
     }
+    _timer = Timer(Duration(milliseconds: 800), () {
+      if (q != '') {
+        fetchBook(search: q).then((value) {
+          setState(() {
+            entries = value;
+          });
+        });
+      } else {
+        setState(() {
+          entries.clear();
+        });
+      }
+    });
   }
 
   @override
@@ -63,9 +70,15 @@ class _SearchPageState extends State<SearchPage> {
                       ],
                     ));
                   })
-              : Center(child: Text('Nothing to search for...')),
+              : Center(child: Text('No result')),
         ),
       ],
     );
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
   }
 }
