@@ -1,16 +1,8 @@
-# biblio
+[![Codemagic build status](https://api.codemagic.io/apps/5f0f7130d0eccd001a2cf36b/5f0f7130d0eccd001a2cf36a/status_badge.svg)](https://codemagic.io/apps/5f0f7130d0eccd001a2cf36b/5f0f7130d0eccd001a2cf36a/latest_build)
 
-A new Flutter application.
+# Flutter BookCase
 
-## Getting Started
+See [Medium](https://medium.com/@soulie.arnaud/a-flutter-journey-from-zero-to-cf0142a3c016)
 
-This project is a starting point for a Flutter application.
+Test online web-app [here](https://flutter_bookcase.codemagic.app/#/)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
